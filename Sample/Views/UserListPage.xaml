@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Sample.Views.UserListPage"
+             Title="User">
+    <StackLayout Spacing="5">
+        <Button x:Name="BtnBack"
+            Command="{Binding BackCommand}"
+            Text="back"/>
+        <Button x:Name="BtnDialog"
+            Command="{Binding DialogCommand}"
+            Text="dialog"/>
+        <ListView x:Name="ListViewUsers"
+            ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Email}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
